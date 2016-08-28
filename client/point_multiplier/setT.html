@@ -1,0 +1,83 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="style.css">
+	</head>
+	<body>
+		
+			<center>
+			<div id="header">
+				<div ><input id ="backk" type="submit" value="Back"></div>
+				<div id ="headmid">Points Multiplier</div>
+			</div>
+			<div id="mid">
+				<div id="picture">
+					<img id="pic" src="2.jpg" name="changingpic"/><br>
+				</div>
+				<div id="details">
+				<div id="butones">
+					<input type="submit" onclick="repeat()" value="SPIN" id="random"><br>
+				</div>
+				<div id="texbox">
+					<input id ="input" type="text" value="" name="input" placeholder="Current points" readonly><br>
+					<input id ="num" type="text" value="" name="num" placeholder="Multiplier" readonly><br>
+					<input id ="total" type="text" value="" name="total" placeholder="Total Points" readonly>
+				</div>
+				</div>	
+			</div>
+		
+			</center>
+			<script>
+			var rep;
+			var one= 0;
+			var two = 0;
+			var three = 0;
+			var last = 0;
+			
+				function repeat(){	
+				var points = Math.floor((Math.random() * 100) + 10);
+				document.getElementById("input").value = points;				
+				rep = setInterval(myfunc, 100);
+				}
+			function myfunc(){[]
+				var points = document.getElementById("input").value;
+				var randNum = Math.floor((Math.random() * 3) + 1);
+				if(randNum == 1){
+					one++;
+					last = 1;
+					if(one >20){
+						clearInterval(rep);
+						document.getElementById("total").value= points * last;
+						document.getElementById("random").disabled = true;
+					}
+					document.getElementById("pic").src="1.jpg";
+					document.getElementById("num").value= 1;
+					
+				}
+				else if(randNum == 2){
+					two++
+					last = 2;
+					if(two >20){
+						clearInterval(rep);
+						document.getElementById("total").value= points * last;
+					}
+					document.getElementById("pic").src="2.jpg";
+					document.getElementById("num").value=2;
+					document.getElementById("random").disabled = true;
+				}
+				else {
+					three++
+					last = 3;
+					if(three >20){
+						clearInterval(rep);
+						document.getElementById("total").value= points * last;
+						document.getElementById("random").disabled = true;
+					}
+					document.getElementById("pic").src="3.jpg";
+					document.getElementById("num").value=3;
+				}
+			}
+				
+				
+			</script>
+	</body>
+</html>
